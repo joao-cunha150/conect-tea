@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONECT TEA - Biblioteca</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/biblioteca.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-icon">🧩</span>
+        <span class="logo-text">CONECT TEA</span>
+      </div>
+      <div class="nav-links">
+        <a href="biblioteca.html" class="active">Biblioteca</a>
+        <a href="criar-conta.html">Criar conta</a>
+        <a href="assistente.html">Assistente</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Biblioteca de Recursos</h1>
+        <p class="subtitle">Acesse artigos, guias e materiais de apoio para a jornada do autismo.</p>
+      </div>
+
+      <div class="two-columns">
+        <div class="col-cards">
+          <div class="filters">
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="crises">Crises sensoriais</button>
+            <button class="filter-btn" data-filter="comunicacao">Comunicação</button>
+            <button class="filter-btn" data-filter="educacao">Educação</button>
+          </div>
+          <div class="cards-grid" id="cardsGrid"></div>
+        </div>
+
+        <div class="col-sidebar">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar artigos...">
+            <span class="search-icon">🔍</span>
+          </div>
+          <div class="rotina-card">
+            <h3 class="rotina-title">MINHA ROTINA</h3>
+            <ul class="rotina-list">
+              <li>ACOLHER</li>
+              <li>ESCOLHER OS DENTES</li>
+              <li>CAFÉ DE MANHÃ</li>
+              <li>ESCOLA</li>
+              <li>RINCAR</li>
+              <li>RETIRAR</li>
+              <li>DOMINGO</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="data/artigos.js"></script>
+  <script src="js/biblioteca.js"></script>
+</body>
+</html>
