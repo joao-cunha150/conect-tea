@@ -1,0 +1,178 @@
+.config-layout {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.config-sidebar {
+    width: 260px;
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid #EDF2F7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    height: fit-content;
+    position: sticky;
+    top: 1rem;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    color: #4A5B6E;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.menu-item:hover {
+    background: #F1F5F9;
+    color: #2A6F97;
+}
+
+.menu-item.active {
+    background: #E6F4F9;
+    color: #2A6F97;
+}
+
+.menu-icon {
+    font-size: 1.2rem;
+}
+
+.config-content {
+    flex: 1;
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid #EDF2F7;
+    text-align: center;
+}
+
+.sobre-header {
+    margin-bottom: 2rem;
+}
+
+.logo-grande {
+    font-size: 5rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.sobre-header h1 {
+    font-size: 2rem;
+    color: #1A2C3E;
+}
+
+.versao {
+    color: #94A3B8;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.sobre-descricao {
+    background: linear-gradient(135deg, #E6F4F9, #F0F7FA);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.sobre-descricao p {
+    font-size: 1rem;
+    color: #2A6F97;
+    font-weight: 500;
+}
+
+.sobre-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.acao-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #F8FAFE;
+    border: 1px solid #E2E8F0;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #334155;
+}
+
+.acao-btn:hover {
+    background: #2A6F97;
+    border-color: #2A6F97;
+    color: white;
+}
+
+.acao-icon {
+    font-size: 1.1rem;
+}
+
+.sobre-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #EDF2F7;
+}
+
+.sobre-footer p {
+    color: #5B6E8C;
+    font-size: 0.85rem;
+}
+
+.copyright {
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    color: #94A3B8;
+}
+
+.user-avatar-small {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #2A6F97, #1E4A6B);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .config-layout {
+        flex-direction: column;
+    }
+    .config-sidebar {
+        width: 100%;
+        position: static;
+    }
+    .sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .menu-item {
+        flex: 1;
+        justify-content: center;
+    }
+    .sobre-acoes {
+        flex-direction: column;
+    }
+    .acao-btn {
+        justify-content: center;
+    }
+}

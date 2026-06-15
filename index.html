@@ -1,65 +1,492 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CONECT TEA - Início</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #2A6F97 0%, #1E4A6B 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .splash {
-      text-align: center;
-      color: white;
-      animation: fadeIn 1s ease;
-    }
-    .splash h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .splash p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-    .loader {
-      width: 48px;
-      height: 48px;
-      border: 3px solid rgba(255,255,255,0.3);
-      border-radius: 50%;
-      border-top-color: white;
-      animation: spin 1s ease-in-out infinite;
-      margin: 0 auto 1rem;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONECT TEA - Início</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #F5F7FA;
+            color: #1A2C3E;
+        }
+
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(42, 111, 151, 0.15);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #1A2C3E;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5B6E8C;
+            font-weight: 500;
+            transition: 0.2s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: #2A6F97;
+        }
+
+        .nav-links a.active {
+            color: #2A6F97;
+            font-weight: 600;
+            border-bottom: 2px solid #2A6F97;
+        }
+
+        .user-avatar-small {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #2A6F97, #1E4A6B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2A6F97 0%, #1E4A6B 100%);
+            border-radius: 1rem;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #2A6F97;
+            padding: 0.8rem 1.8rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Features */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #1A2C3E;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.8rem;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #E2E8F0;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border-color: #2A6F97;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: #1A2C3E;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #5B6E8C;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* Artigos */
+        .artigos-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .artigos-header h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1A2C3E;
+        }
+
+        .ver-todos {
+            color: #2A6F97;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .ver-todos:hover {
+            text-decoration: underline;
+        }
+
+        .artigos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .artigo-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.2rem;
+            border: 1px solid #E2E8F0;
+            transition: 0.2s;
+        }
+
+        .artigo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .artigo-tag {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            background: #E6F4F9;
+            color: #2A6F97;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .artigo-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1A2C3E;
+        }
+
+        .artigo-card p {
+            color: #5B6E8C;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .artigo-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .artigo-tempo {
+            font-size: 0.7rem;
+            color: #94A3B8;
+        }
+
+        .ler-mais {
+            color: #2A6F97;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .ler-mais:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: #E6F4F9;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1A2C3E;
+        }
+
+        .cta-section p {
+            color: #5B6E8C;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-cta {
+            background: #2A6F97;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .btn-cta:hover {
+            background: #1E5A7A;
+            transform: translateY(-2px);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 1rem;
+            }
+            .hero {
+                padding: 1.8rem;
+            }
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 1.6rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .nav-links {
+                justify-content: center;
+            }
+            .features-grid {
+                gap: 1rem;
+            }
+            .artigos-header h2 {
+                font-size: 1.2rem;
+            }
+            .cta-section h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="splash">
-    <div class="loader"></div>
-    <h1>🧩 CONECT TEA</h1>
-    <p>Carregando...</p>
-  </div>
-  <script>
-    setTimeout(() => {
-      window.location.href = "biblioteca.html";
-    }, 1500);
-  </script>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🧩</span>
+                <span class="logo-text">CONECT TEA</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Início</a>
+                <a href="assistente.html">Chat</a>
+                <a href="biblioteca.html">Biblioteca</a>
+                <a href="configuracoes.html">Configurações</a>
+            </div>
+            <div class="user-avatar-small" id="navAvatar">JV</div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>CONECT TEA<br>Transformando conhecimento em apoio</h1>
+                    <p>Plataforma que conecta informações, ferramentas e acolhimento para a comunidade TEA.</p>
+                    <div class="hero-buttons">
+                        <a href="assistente.html" class="btn-primary">Começar agora</a>
+                        <a href="biblioteca.html" class="btn-secondary">Explorar biblioteca</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <h2 class="section-title">Funcionalidades</h2>
+        <div class="features-grid">
+            <div class="feature-card" onclick="window.location.href='assistente.html'">
+                <div class="feature-icon">💬</div>
+                <h3>Assistente</h3>
+                <p>Orientador virtual para informações e acolhimento sobre autismo.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='biblioteca.html'">
+                <div class="feature-icon">📚</div>
+                <h3>Biblioteca</h3>
+                <p>Artigos, guias e materiais organizados por categoria.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='perfil.html'">
+                <div class="feature-icon">👤</div>
+                <h3>Perfil</h3>
+                <p>Gerencie suas informações e acompanhe seu progresso.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='configuracoes.html'">
+                <div class="feature-icon">⚙️</div>
+                <h3>Configurações</h3>
+                <p>Personalize tema, idioma e notificações do seu jeito.</p>
+            </div>
+        </div>
+
+        <!-- Artigos Recentes -->
+        <div class="artigos-header">
+            <h2>Artigos em destaque</h2>
+            <a href="biblioteca.html" class="ver-todos">Ver todos →</a>
+        </div>
+        <div class="artigos-grid" id="artigosGrid">
+            <div class="artigo-card">
+                <span class="artigo-tag">Crises sensoriais</span>
+                <h3>Entendendo crises sensoriais</h3>
+                <p>Compreender e o primeiro passo para acolher.</p>
+                <div class="artigo-footer">
+                    <span class="artigo-tempo">10 min</span>
+                    <a href="biblioteca.html" class="ler-mais">Ler mais →</a>
+                </div>
+            </div>
+            <div class="artigo-card">
+                <span class="artigo-tag">Comunicação</span>
+                <h3>Estratégias de comunicação</h3>
+                <p>Conectar, compreender e se fazer entender faz toda a diferença.</p>
+                <div class="artigo-footer">
+                    <span class="artigo-tempo">15 min</span>
+                    <a href="biblioteca.html" class="ler-mais">Ler mais →</a>
+                </div>
+            </div>
+            <div class="artigo-card">
+                <span class="artigo-tag">Educação</span>
+                <h3>Rotinas Visuais e Estrutura</h3>
+                <p>Organização que traz segurança, autonomia e tranquilidade.</p>
+                <div class="artigo-footer">
+                    <span class="artigo-tempo">20 min</span>
+                    <a href="biblioteca.html" class="ler-mais">Ler mais →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Pronto para começar?</h2>
+            <p>Junte-se a outras pessoas que já transformaram sua jornada com o CONECT TEA.</p>
+            <a href="criar-conta.html" class="btn-cta">Criar conta</a>
+        </div>
+    </div>
+
+    <script>
+        // Carregar avatar do usuário
+        const userData = JSON.parse(localStorage.getItem("userData") || "{}");
+        const nome = userData.nome || "João Victor";
+        const iniciais = nome.split(" ").map(n => n[0]).join("").slice(0, 2).toUpperCase();
+        const navAvatar = document.getElementById("navAvatar");
+        if (navAvatar) navAvatar.innerText = iniciais;
+    </script>
 </body>
 </html>

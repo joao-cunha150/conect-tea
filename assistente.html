@@ -1,108 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CONECT TEA - Assistente</title>
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/assistente.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONECT TEA - Assistente</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/assistente.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="app-container">
-    <nav class="navbar">
-      <div class="logo">
-        <span class="logo-icon">🧩</span>
-        <span class="logo-text">CONECT TEA</span>
-      </div>
-      <div class="nav-links">
-        <a href="biblioteca.html">Biblioteca</a>
-        <a href="criar-conta.html">Criar conta</a>
-        <a href="assistente.html" class="active">Assistente</a>
-      </div>
-    </nav>
-
-    <main class="main-content">
-      <div class="assistente-layout">
-        <!-- Sidebar -->
-        <aside class="assistente-sidebar">
-          <div class="sidebar-header">
-            <h3>Assistente CONECT TEA</h3>
-            <button id="novoChatBtn" class="btn-novo-chat">+ Novo chat</button>
-          </div>
-
-          <div class="sidebar-busca">
-            <input type="text" placeholder="Busque..." id="buscaSidebar">
-          </div>
-
-          <div class="chats-recentes">
-            <h4>Chats recentes</h4>
-            <ul id="chatsList">
-              <li>Crises sensoriais</li>
-              <li>Comunicação 1</li>
-              <li>Comunicação 2</li>
-            </ul>
-          </div>
-
-          <div class="topicos-sugeridos">
-            <h4>Sugestões de Tópicos</h4>
-            <div class="topicos-grid">
-              <span class="topico" data-topico="Crises sensoriais">Crises sensoriais</span>
-              <span class="topico" data-topico="Comunicação">Comunicação</span>
-              <span class="topico" data-topico="Rotinas">Rotinas</span>
-              <span class="topico" data-topico="Direitos">Direitos</span>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🧩</span>
+                <span class="logo-text">CONECT TEA</span>
             </div>
-          </div>
-        </aside>
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="assistente.html" class="active">Chat</a>
+                <a href="biblioteca.html">Biblioteca</a>
+                <a href="configuracoes.html">Configurações</a>
+            </div>
+            <div class="user-menu">
+                <div class="user-avatar-small" id="navAvatar">JV</div>
+            </div>
+        </nav>
 
-        <!-- Área do chat -->
-        <div class="assistente-chat">
-          <div class="chat-header">
-            <div class="user-info">
-              <div class="user-avatar">JV</div>
-              <div class="user-details">
-                <strong>João Victor</strong>
-                <small>joao@gmail.com</small>
-              </div>
-            </div>
-          </div>
+        <main class="main-content">
+            <div class="assistente-layout">
+                <aside class="assistente-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Assistente CONECT TEA</h3>
+                        <button id="novoChatBtn" class="btn-novo-chat">+ Novo chat</button>
+                    </div>
+                    <div class="sidebar-busca">
+                        <input type="text" placeholder="Busque..." id="buscaSidebar">
+                    </div>
+                    <div class="chats-recentes">
+                        <h4>Chats recentes</h4>
+                        <ul id="chatsList">
+                            <li>Crises sensoriais</li>
+                            <li>Comunicação 1</li>
+                            <li>Comunicação 2</li>
+                        </ul>
+                    </div>
+                    <div class="topicos-sugeridos">
+                        <h4>Sugestões de Tópicos</h4>
+                        <div class="topicos-grid">
+                            <span class="topico" data-topico="Crises sensoriais">Crises sensoriais</span>
+                            <span class="topico" data-topico="Comunicação">Comunicação</span>
+                            <span class="topico" data-topico="Rotinas">Rotinas</span>
+                            <span class="topico" data-topico="Direitos">Direitos</span>
+                        </div>
+                    </div>
+                </aside>
 
-          <div class="chat-messages" id="chatMessages">
-            <div class="message user-message">
-              <div class="message-content">
-                Meu filho começou a tapar os ouvidos e gritar no mercado. O que eu faço?
-              </div>
-              <span class="message-time">Agora</span>
+                <div class="assistente-chat">
+                    <div class="chat-header">
+                        <div class="user-info">
+                            <div class="user-avatar" id="chatAvatar">JV</div>
+                            <div class="user-details" id="userDetails">
+                                <strong>João Victor</strong>
+                                <small>joao@gmail.com</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message user-message">
+                            <div class="message-content">Meu filho começou a tapar os ouvidos e gritar no mercado. O que eu faço?</div>
+                            <span class="message-time">Agora</span>
+                        </div>
+                        <div class="message assistant-message">
+                            <div class="message-content">Tire ele do local barulhento. Vá para um canto mais silencioso. Abrace firme ou apenas fique perto, sem forçar contato. Fale frases curtas: "Estou aqui". Respire fundo – sua calma ajuda.</div>
+                            <span class="message-time">Agora</span>
+                        </div>
+                        <div class="message user-message">
+                            <div class="message-content">Outra coisa meu irmão não fala, mas aponta e faz sons. Como posso me comunicar melhor?</div>
+                            <span class="message-time">Agora</span>
+                        </div>
+                        <div class="message assistant-message">
+                            <div class="message-content">Ele já está se comunicando! Use pranchas de figuras (PECS) ou gestos simples. Quando ele apontar, mostre o objeto e repita o nome. Valorize cada tentativa. Quer sugestões de aplicativos gratuitos?</div>
+                            <span class="message-time">Agora</span>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="mensagemInput" placeholder="Digite sua mensagem...">
+                        <button id="enviarMsgBtn" class="btn-enviar">📤</button>
+                    </div>
+                </div>
             </div>
-            <div class="message assistant-message">
-              <div class="message-content">
-                Tire ele do local barulhento. Vá para um canto mais silencioso. Abrace firme ou apenas fique perto, sem forçar contato. Fale frases curtas: "Estou aqui". Respire fundo – sua calma ajuda.
-              </div>
-              <span class="message-time">Agora</span>
-            </div>
-            <div class="message user-message">
-              <div class="message-content">
-                Outra coisa meu irmão não fala, mas aponta e faz sons. Como posso me comunicar melhor?
-              </div>
-              <span class="message-time">Agora</span>
-            </div>
-            <div class="message assistant-message">
-              <div class="message-content">
-                Ele já está se comunicando! Use pranchas de figuras (PECS) ou gestos simples. Quando ele apontar, mostre o objeto e repita o nome. Valorize cada tentativa. Quer sugestões de aplicativos gratuitos?
-              </div>
-              <span class="message-time">Agora</span>
-            </div>
-          </div>
+        </main>
+    </div>
 
-          <div class="chat-input-area">
-            <input type="text" id="mensagemInput" placeholder="Digite sua mensagem...">
-            <button id="enviarMsgBtn" class="btn-enviar">📤</button>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <script src="js/assistente.js"></script>
+    <script src="js/assistente.js"></script>
+    <script>
+        const userData = JSON.parse(localStorage.getItem("userData") || "{}");
+        const nome = userData.nome || "João Victor";
+        const email = userData.email || "joao@gmail.com";
+        const iniciais = nome.split(" ").map(n => n[0]).join("").slice(0, 2).toUpperCase();
+        
+        document.getElementById("navAvatar").innerText = iniciais;
+        document.getElementById("chatAvatar").innerText = iniciais;
+        document.getElementById("userDetails").innerHTML = `<strong>${nome}</strong><small>${email}</small>`;
+    </script>
 </body>
 </html>

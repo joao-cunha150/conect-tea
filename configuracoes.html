@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONECT TEA - Configurações</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #F5F7FA;
+            color: #1A2C3E;
+        }
+
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(42, 111, 151, 0.15);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1A2C3E;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5B6E8C;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2A6F97;
+        }
+
+        .nav-links a.active {
+            color: #2A6F97;
+            font-weight: 600;
+        }
+
+        .user-avatar-small {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2A6F97, #1E4A6B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .config-layout {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            width: 220px;
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            border: 1px solid #E2E8F0;
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .sidebar-menu a {
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: #5B6E8C;
+            border-radius: 0.5rem;
+        }
+
+        .sidebar-menu a:hover {
+            background: #F1F5F9;
+            color: #2A6F97;
+        }
+
+        .sidebar-menu a.active {
+            background: #E6F4F9;
+            color: #2A6F97;
+            font-weight: 500;
+        }
+
+        .content {
+            flex: 1;
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #E2E8F0;
+        }
+
+        .content h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .config-group {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #EDF2F7;
+        }
+
+        .config-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #334155;
+            font-size: 0.9rem;
+        }
+
+        .config-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+        }
+
+        .config-item span {
+            font-size: 0.9rem;
+        }
+
+        .toggle {
+            position: relative;
+            width: 48px;
+            height: 24px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #CBD5E1;
+            transition: 0.3s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #2A6F97;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        select {
+            width: 100%;
+            padding: 0.6rem;
+            border-radius: 0.5rem;
+            border: 1px solid #CBD5E1;
+            background: white;
+            font-size: 0.9rem;
+        }
+
+        .fonte-buttons {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .fonte-btn {
+            padding: 0.4rem 1.2rem;
+            border: 1px solid #CBD5E1;
+            background: white;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .fonte-btn.active {
+            background: #2A6F97;
+            color: white;
+            border-color: #2A6F97;
+        }
+
+        .tom-chat {
+            background: #F8FAFE;
+            border-radius: 0.75rem;
+            padding: 0.5rem;
+        }
+
+        .tom-opcao {
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .tom-opcao:hover {
+            background: #F1F5F9;
+        }
+
+        .tom-opcao.selected {
+            background: #E6F4F9;
+            border-left: 3px solid #2A6F97;
+        }
+
+        .tom-titulo {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .tom-desc {
+            font-size: 0.75rem;
+            color: #5B6E8C;
+            line-height: 1.4;
+        }
+
+        .btn-salvar {
+            margin-top: 1.5rem;
+            width: 100%;
+            padding: 0.8rem;
+            background: #2A6F97;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-salvar:hover {
+            background: #1E5A7A;
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 1rem;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            .sidebar-menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🧩</span>
+                <span class="logo-text">CONECT TEA</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="assistente.html">Chat</a>
+                <a href="biblioteca.html">Biblioteca</a>
+                <a href="configuracoes.html" class="active">Configurações</a>
+            </div>
+            <div class="user-avatar-small" id="navAvatar">JV</div>
+        </nav>
+
+        <div class="config-layout">
+            <div class="sidebar">
+                <div class="sidebar-menu">
+                    <a href="perfil.html">Perfil</a>
+                    <a href="notificacoes.html">Notificações</a>
+                    <a href="sobre.html">Sobre</a>
+                    <a href="ferramentas.html">Ferramentas</a>
+                </div>
+            </div>
+
+            <div class="content">
+                <h1>Configurações</h1>
+
+                <div class="config-group">
+                    <div class="config-item">
+                        <span>Modo escuro</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="darkMode">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="config-item">
+                        <span>Reduzir animações</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="reduzirAnimacoes">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="config-item">
+                        <span>Alto contraste</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="altoContraste">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <label>Tamanho da fonte</label>
+                    <div class="fonte-buttons">
+                        <button class="fonte-btn" data-fonte="pequeno">Pequeno</button>
+                        <button class="fonte-btn active" data-fonte="medio">Médio</button>
+                        <button class="fonte-btn" data-fonte="grande">Grande</button>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <label>Idioma</label>
+                    <select id="idioma">
+                        <option value="pt" selected>Português (Brasil)</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+
+                <div class="config-group">
+                    <label>Selecione o tom do chat</label>
+                    
+                    <div class="tom-chat">
+                        <div class="tom-opcao selected" data-tom="acolhedor">
+                            <div class="tom-titulo">Acolhedor</div>
+                            <div class="tom-desc">A IA responde com calma, empatia e frases curtas. Usa palavras como "vamos resolver juntos", "estou aqui". Ideal para momentos de crise ou acolhimento emocional.</div>
+                        </div>
+                        <div class="tom-opcao" data-tom="direto">
+                            <div class="tom-titulo">Direto</div>
+                            <div class="tom-desc">A IA responde de forma objetiva, com instruções claras e sem rodeios. Vai direto ao ponto. Ideal para quem precisa de respostas rápidas e práticas.</div>
+                        </div>
+                        <div class="tom-opcao" data-tom="tecnico">
+                            <div class="tom-titulo">Técnico</div>
+                            <div class="tom-desc">A IA responde com base científica, citando termos e referências.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-salvar" id="salvarConfig">Salvar alterações</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const userData = JSON.parse(localStorage.getItem("userData") || "{}");
+        const nome = userData.nome || "Usuário";
+        const iniciais = nome.split(" ").map(n => n[0]).join("").slice(0, 2).toUpperCase();
+        document.getElementById("navAvatar").innerText = iniciais;
+
+        // Fonte
+        document.querySelectorAll(".fonte-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".fonte-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+            });
+        });
+
+        // Tom do chat
+        document.querySelectorAll(".tom-opcao").forEach(tom => {
+            tom.addEventListener("click", () => {
+                document.querySelectorAll(".tom-opcao").forEach(t => t.classList.remove("selected"));
+                tom.classList.add("selected");
+            });
+        });
+
+        document.getElementById("salvarConfig").addEventListener("click", () => {
+            alert("✅ Configurações salvas com sucesso!");
+        });
+    </script>
+</body>
+</html>

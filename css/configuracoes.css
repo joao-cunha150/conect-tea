@@ -1,0 +1,236 @@
+.config-layout {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.config-sidebar {
+    width: 260px;
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid #EDF2F7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    height: fit-content;
+    position: sticky;
+    top: 1rem;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    color: #4A5B6E;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.menu-item:hover {
+    background: #F1F5F9;
+    color: #2A6F97;
+}
+
+.menu-item.active {
+    background: #E6F4F9;
+    color: #2A6F97;
+}
+
+.menu-icon {
+    font-size: 1.2rem;
+}
+
+.config-content {
+    flex: 1;
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #EDF2F7;
+}
+
+.config-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #EDF2F7;
+}
+
+.config-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.config-header p {
+    color: #5B6E8C;
+    font-size: 0.85rem;
+}
+
+.notificacoes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.notificacao-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #F8FAFE;
+    border-radius: 0.75rem;
+    transition: 0.2s;
+}
+
+.notificacao-item:hover {
+    background: #F1F5F9;
+}
+
+.notificacao-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.notificacao-info p {
+    font-size: 0.75rem;
+    color: #5B6E8C;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #CBD5E1;
+    transition: 0.3s;
+    border-radius: 34px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: #2A6F97;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+
+.config-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #EDF2F7;
+}
+
+.config-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.idioma-selector, .tema-selector {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.idioma-btn, .tema-btn {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid #E2E8F0;
+    background: white;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.85rem;
+}
+
+.idioma-btn:hover, .tema-btn:hover {
+    border-color: #2A6F97;
+    color: #2A6F97;
+}
+
+.idioma-btn.active, .tema-btn.active {
+    background: #2A6F97;
+    color: white;
+    border-color: #2A6F97;
+}
+
+.btn-salvar {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 0.875rem;
+    background: #2A6F97;
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-salvar:hover {
+    background: #1E5A7A;
+    transform: translateY(-1px);
+}
+
+.user-avatar-small {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #2A6F97, #1E4A6B);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .config-layout {
+        flex-direction: column;
+    }
+    .config-sidebar {
+        width: 100%;
+        position: static;
+    }
+    .sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .menu-item {
+        flex: 1;
+        justify-content: center;
+    }
+}

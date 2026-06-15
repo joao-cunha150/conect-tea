@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONECT TEA - Ferramentas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #F5F7FA;
+            color: #1A2C3E;
+        }
+
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(42, 111, 151, 0.15);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1A2C3E;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5B6E8C;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2A6F97;
+        }
+
+        .user-avatar-small {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2A6F97, #1E4A6B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .config-layout {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            width: 220px;
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            border: 1px solid #E2E8F0;
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .sidebar-menu a {
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: #5B6E8C;
+            border-radius: 0.5rem;
+            transition: 0.2s;
+        }
+
+        .sidebar-menu a:hover {
+            background: #F1F5F9;
+            color: #2A6F97;
+        }
+
+        .sidebar-menu a.active {
+            background: #E6F4F9;
+            color: #2A6F97;
+            font-weight: 500;
+        }
+
+        .content {
+            flex: 1;
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #E2E8F0;
+        }
+
+        .content h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: #5B6E8C;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .tool-card {
+            background: #F8FAFE;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #E2E8F0;
+        }
+
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-header h3 {
+            font-size: 0.95rem;
+        }
+
+        .tool-desc {
+            font-size: 0.75rem;
+            color: #5B6E8C;
+        }
+
+        .toggle {
+            position: relative;
+            width: 48px;
+            height: 24px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #CBD5E1;
+            transition: 0.3s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #2A6F97;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        .sons-grid {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .som-btn {
+            padding: 0.3rem 1rem;
+            background: white;
+            border: 1px solid #CBD5E1;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        .som-btn:hover {
+            background: #2A6F97;
+            color: white;
+            border-color: #2A6F97;
+        }
+
+        .crise-area {
+            background: #FEF3C7;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .crise-area p {
+            color: #92400E;
+            font-size: 0.85rem;
+        }
+
+        .btn-crise {
+            background: #DC2626;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 1rem;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            .sidebar-menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🧩</span>
+                <span class="logo-text">CONECT TEA</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="assistente.html">Chat</a>
+                <a href="biblioteca.html">Biblioteca</a>
+                <a href="configuracoes.html">Configurações</a>
+            </div>
+            <div class="user-avatar-small" id="navAvatar">JV</div>
+        </nav>
+
+        <div class="config-layout">
+            <div class="sidebar">
+                <div class="sidebar-menu">
+                    <a href="perfil.html">Perfil</a>
+                    <a href="notificacoes.html">Notificações</a>
+                    <a href="sobre.html">Sobre</a>
+                    <a href="ferramentas.html" class="active">Ferramentas</a>
+                </div>
+            </div>
+
+            <div class="content">
+                <h1>Foco e Regulação</h1>
+                <p class="subtitle">Ferramentas para manter o equilíbrio e o bem-estar no seu dia a dia.</p>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>Modo Foco</h3>
+                        <label class="toggle">
+                            <input type="checkbox" id="modoFoco">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p class="tool-desc">Ativar um ambiente com menos distrações e mais concentração.</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>Timer de uso</h3>
+                        <label class="toggle">
+                            <input type="checkbox" id="timerUso">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p class="tool-desc">Defina um tempo para uso do app.</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>Botão de pausa rápida</h3>
+                        <label class="toggle">
+                            <input type="checkbox" id="pausaRapida">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p class="tool-desc">Exibe um botão de pausa em qualquer tela do app.</p>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Sons ambientes</h3>
+                    <p class="tool-desc">Escolha um som que ajuda você a se acalmar</p>
+                    <div class="sons-grid">
+                        <button class="som-btn" data-som="chuva">Chuva</button>
+                        <button class="som-btn" data-som="ventilador">Ventilador</button>
+                        <button class="som-btn" data-som="silêncio">Silêncio</button>
+                        <button class="som-btn" data-som="floresta">Floresta</button>
+                    </div>
+                </div>
+
+                <div class="crise-area">
+                    <div>
+                        <strong>Modo crise</strong>
+                        <p>Acesso rápido a ferramentas que ajudam em momentos de sobrecarga</p>
+                    </div>
+                    <button class="btn-crise" id="modoCriseBtn">Acesso rápido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const userData = JSON.parse(localStorage.getItem("userData") || "{}");
+        const nome = userData.nome || "Usuário";
+        const iniciais = nome.split(" ").map(n => n[0]).join("").slice(0, 2).toUpperCase();
+        document.getElementById("navAvatar").innerText = iniciais;
+
+        document.querySelectorAll(".som-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                alert(`🔊 Som ambiente: ${btn.innerText}\n\nEm desenvolvimento.`);
+            });
+        });
+
+        document.getElementById("modoCriseBtn").addEventListener("click", () => {
+            alert("🆘 Modo crise ativado!\n\nFerramentas de regulação disponíveis.\n\n- Respiração guiada\n- Contato de emergência\n- Músicas calmantes");
+        });
+    </script>
+</body>
+</html>
